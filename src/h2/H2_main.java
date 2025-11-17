@@ -7,7 +7,7 @@ public class H2_main {
 
         //variables able to change:
 
-        int n = 299;
+        int n = 299876890;
         int digits = 45;
 
         //variables not able to change:
@@ -15,6 +15,7 @@ public class H2_main {
         int digitCount = 0;
         int Zaehler = 1;
         int [] a = new int[9];
+        int divisorZaehler = 0;
 
         //Anzahl Ziffern ermitteln:
 
@@ -31,10 +32,13 @@ public class H2_main {
 
         //Belegung in Array:
 
-        String ZahlZuZiffer = String.valueOf(n);
-        for (int i =1 ; i<= digits;i++){
-            a[9-i] = ZahlZuZiffer.charAt(digits-i)-'0';
+        while (n>0){
+            int Rest = n % 10;
+            a[8-divisorZaehler] = Rest;
+            n = n/10;
+            divisorZaehler++;
         }
+
         System.out.println(Arrays.toString(a));
 
     }
